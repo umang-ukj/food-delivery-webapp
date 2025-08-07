@@ -1,0 +1,5 @@
+package com.food.delivery.restaurantservice.model;
+
+public class Restaurant {
+
+}

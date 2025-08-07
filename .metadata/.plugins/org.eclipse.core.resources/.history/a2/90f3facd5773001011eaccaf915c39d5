@@ -1,0 +1,11 @@
+server.port=8888
+
+spring.application.name=config-server
+
+# Git Configuration for Config Server
+spring.cloud.config.server.git.uri=file:///D:/Eclipse_workspace/food delivery/config-repo
+spring.cloud.config.server.git.default-label=main
+spring.cloud.config.server.git.clone-on-start=true
+
+# Eureka Client Configuration
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka

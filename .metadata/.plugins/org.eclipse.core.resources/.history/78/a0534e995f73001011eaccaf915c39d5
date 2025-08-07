@@ -1,0 +1,23 @@
+package com.food.delivery.userservice.controller;
+
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    private final UserRepository repo;
+
+    public UserController(UserRepository repo) {
+        this.repo = repo;
+    }
+
+    @GetMapping
+    public List<User> getAllUsers() {
+        return repo.findAll();
+    }
+
+    @PostMapping
+    public User createUser(@RequestBody User user) {
+        return repo.save(user);
+    }
+
+}

@@ -1,0 +1,5 @@
+package com.food.delivery.restaurantservice.controller;
+
+public class RestaurantController {
+
+}

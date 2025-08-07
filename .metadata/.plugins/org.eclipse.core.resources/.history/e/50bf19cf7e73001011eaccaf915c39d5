@@ -1,0 +1,22 @@
+package com.food.delivery.restaurantservice.controller;
+
+@RestController
+@RequestMapping("/restaurants")
+public class RestaurantController {
+
+    private final RestaurantRepository repo;
+
+    public RestaurantController(RestaurantRepository repo) {
+        this.repo = repo;
+    }
+
+    @GetMapping
+    public List<Restaurant> getAll() {
+        return repo.findAll();
+    }
+
+    @PostMapping
+    public Restaurant create(@RequestBody Restaurant restaurant) {
+        return repo.save(restaurant);
+    }
+}
