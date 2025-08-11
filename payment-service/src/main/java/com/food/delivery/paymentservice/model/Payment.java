@@ -2,14 +2,16 @@ package com.food.delivery.paymentservice.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Builder;
 
 @Entity
+@Builder
 public class Payment {
     @Id
     private String paymentId;
     private String orderId;
-    private String status;
-    private String paymentMode;
+    private String paymentStatus;
+    private double amount;
 	public String getPaymentId() {
 		return paymentId;
 	}
@@ -22,29 +24,30 @@ public class Payment {
 	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
-	public String getStatus() {
-		return status;
+	public String getPaymentStatus() {
+		return paymentStatus;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setPaymentStatus(String paymentStatus) {
+		this.paymentStatus = paymentStatus;
 	}
-	public String getPaymentMode() {
-		return paymentMode;
-	}
-	public void setPaymentMode(String paymentMode) {
-		this.paymentMode = paymentMode;
-	}
-	public Payment(String paymentId, String orderId, String status, String paymentMode) {
+	
+	public Payment(String paymentId, String orderId, String paymentStatus, double amount) {
 		super();
 		this.paymentId = paymentId;
 		this.orderId = orderId;
-		this.status = status;
-		this.paymentMode = paymentMode;
+		this.paymentStatus = paymentStatus;
+		this.amount = amount;
 	}
 	@Override
 	public String toString() {
-		return "Payment [paymentId=" + paymentId + ", orderId=" + orderId + ", status=" + status + ", paymentMode="
-				+ paymentMode + "]";
+		return "Payment [paymentId=" + paymentId + ", orderId=" + orderId + ", paymentStatus=" + paymentStatus + ", amount="
+				+ amount + "]";
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
     
 }
