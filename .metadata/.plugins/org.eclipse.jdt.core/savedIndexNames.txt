@@ -51,7 +51,6 @@ INDEX VERSION 1.131+D:\Eclipse_workspace\food delivery\.metadata\.plugins\org.ec
 599792781.index
 2701476956.index
 2483992212.index
-1050042363.index
 462132254.index
 1056897826.index
 4031983246.index
