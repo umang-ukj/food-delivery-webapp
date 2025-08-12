@@ -3,26 +3,33 @@ server:
 
 spring:
   application:
-    name: gateway-service
+    name: api-gateway
   config:
     import: configserver:http://localhost:8888
-   
-    cloud:
+  cloud:
     gateway:
       routes:
         - id: user-service
-          uri: lb://user-service
+          uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/**
-
-        - id: restaurant-service
-          uri: lb://restaurant-service
+            - Path=/users/**
+        - id: order-service
+          uri: lb://ORDER-SERVICE
           predicates:
-            - Path=/restaurant-service/**s
+            - Path=/orders/**
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payments/**
+        - id: delivery-service
+          uri: lb://DELIVERY-SERVICE
+          predicates:
+            - Path=/delivery/**
+      discovery:
+        locator:
+          enabled: false  # we are using manual route mapping now
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
-
-      
+      defaultZone: http://localhost:8761/eureka/
